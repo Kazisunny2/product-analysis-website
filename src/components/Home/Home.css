@@ -1,0 +1,20 @@
+.book{
+    display: flex;
+    padding-left: 2px;
+    margin: 100px;
+   
+}
+.book img{
+    width: 500px;
+}
+.bookColor{
+    color: blue;
+}
+.btn{
+    background-color: azure;
+    color: blue;
+}
+.btn1{
+    color: aliceblue;
+    background-color: blue;
+}
