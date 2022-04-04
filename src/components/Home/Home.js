@@ -36,7 +36,9 @@ const Home = () => {
                  ></Review>) 
             }
         </div>
+        <div className='button'>
         <button ><CustomLink to="/reviews">See All Reviews</CustomLink></button>
+        </div>
         </div>
     );
 };
