@@ -1,7 +1,17 @@
-import React from 'react';
+// import React from 'react';
+import React, { useEffect, useState } from 'react';
+import CustomLink from '../CustomLink/CustomLink';
+import Review from '../review/review';
 import './Home.css'
 
 const Home = () => {
+    const [reviews, setReviews] = useState([])
+
+    useEffect(() =>{
+        fetch('reviews.json')
+       .then(res=> res.json())
+       .then(data => setReviews(data))
+    },[])
     return (
         <div>
         <div className='book'>
@@ -15,8 +25,18 @@ const Home = () => {
                 <img src="https://teachbesideme.com/wp-content/uploads/2014/08/Big-Book-of-Ideas-Final-Cover-3D-768x884.jpg" alt="" />
             </div>
         </div>
+        <div>
         <h1>Customer Reviews</h1>
-        <button className='btn1'>See All Reviews</button>
+        </div>
+        <div className='home-container'>
+        {
+               reviews.slice(0,3).map(review=> <Review
+                 key={review.id} 
+                 review ={review}
+                 ></Review>) 
+            }
+        </div>
+        <button ><CustomLink to="/reviews">See All Reviews</CustomLink></button>
         </div>
     );
 };
